@@ -76,9 +76,9 @@ public class Controller {
 				    default:
 				    	vista.mostrarInformacion("Error: Opcion invalida");
 				    	break;
-				    }
 				}
 			}
+		}
 		
 		for(int i = 0; i < p.length; i++) {
 			System.out.println("___________________________________________________________________");
