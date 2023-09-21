@@ -1,0 +1,5 @@
+La clase Empleado es abstracta debido a que:
+
+1. Es útil para crear dentro de ella un método abstracto bonificacion(), con el fin de calcular la bonificación que se adiciona al salario que cada clase hija (Programador, Consultor, Directivo) tendrá. Esto porque la forma de calcularlo es especifica para cada cargo de los empleados.
+
+2. El Ejercicio No.2 no especifica algo sobre ella, por lo que no es necesario que pueda crear objetos.
