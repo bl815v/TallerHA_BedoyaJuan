@@ -4,17 +4,22 @@ public class Directivo extends Empleado {
 	private int yearsExp;
 	private String areaEnc;
 	
-	public Directivo(String nombre, int edad, String cedula, float salario, 
+	public Directivo(String nombre, int edad, String cedula,
 			int yearsExp, String areaEnc){
 		
-		super(nombre,edad, cedula, salario);
+		super(nombre,edad, cedula);
 		this.yearsExp = yearsExp;
 		this.areaEnc = areaEnc;
+		this.salario = 5000000;
+		bonificacion();
 	}
 	
 	@Override
-	public void aumentarSalarioPercent() {
-		
+	public void bonificacion() {
+		if(yearsExp > 8 && yearsExp <= 12)
+			salario += salario * 0.3;
+		if(yearsExp > 12)
+			salario += salario * 0.50;	
 	}
 	
 	@Override

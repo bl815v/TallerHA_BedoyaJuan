@@ -5,11 +5,12 @@ public abstract class Empleado {
 	protected int edad;
 	protected double salario;
 	
-	public Empleado(String nombre, int edad, String cedula, float salario) {
+	public Empleado(String nombre, int edad, String cedula) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.cedula = cedula;
-		this.salario = salario;
+		this.salario = 1160000;
+		bonificacion();
 	}
 	
     public abstract void bonificacion();
@@ -50,7 +51,7 @@ public abstract class Empleado {
 		return salario;
 	}
 
-	public void setSalario(float salario) {
+	public void setSalario(double salario) {
 		this.salario = salario;
 	}
 

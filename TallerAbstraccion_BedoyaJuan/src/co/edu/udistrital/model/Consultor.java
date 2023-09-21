@@ -4,20 +4,22 @@ public class Consultor extends Empleado {
 	private int yearsExp;
 	private int developTeams;
 	
-	public Consultor(String nombre, int edad, String cedula, float salario, 
+	public Consultor(String nombre, int edad, String cedula,
 			int yearsExp, int developTeams){
 		
-		super(nombre,edad, cedula, salario);
+		super(nombre,edad, cedula);
 		this.yearsExp = yearsExp;
 		this.developTeams = developTeams;
+		this.salario = 3000000;
+		bonificacion();
 	}
 	
 	@Override
-	public void aumentarSalarioPercent() {
-		if(developTeams > 5 && developTeams < 8)
-			salario = salario + (salario * 0.25);
+	public void bonificacion() {
+		if(developTeams > 5 && developTeams <= 8)
+			salario += salario * 0.25;
 		if(developTeams > 8)
-			salario = salario + (salario * 0.50);	
+			salario += salario * 0.50;	
 	}
 	
 	@Override
