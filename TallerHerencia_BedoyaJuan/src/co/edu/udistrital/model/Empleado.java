@@ -53,7 +53,7 @@ public class Empleado {
 		return salario;
 	}
 
-	public void setSalario(float salario) {
+	public void setSalario(double salario) {
 		this.salario = salario;
 	}
 
