@@ -4,7 +4,7 @@ public class Consultor extends Empleado {
 	private int yearsExp;
 	private int developTeams;
 	
-	public Consultor(String nombre, int edad, String cedula, float salario, 
+	public Consultor(String nombre, int edad, String cedula, double salario, 
 			int yearsExp, int developTeams){
 		
 		super(nombre,edad, cedula, salario);
@@ -12,6 +12,9 @@ public class Consultor extends Empleado {
 		this.developTeams = developTeams;
 	}
 	
+    public void aumentarSalario() {
+        salario = salario + (salario * 0.25);
+    }
 	@Override
 	public String toString() {
 		return super.toString() + 

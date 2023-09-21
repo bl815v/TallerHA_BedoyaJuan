@@ -3,17 +3,18 @@ package co.edu.udistrital.model;
 public class Empleado {
 	protected String nombre, cedula;
 	protected int edad;
-	protected float salario;
+	protected double salario;
 	
-	public Empleado(String nombre, int edad, String cedula, float salario) {
+	public Empleado(String nombre, int edad, String cedula, double salario) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.cedula = cedula;
 		this.salario = salario;
+		aumentarSalario();
 	}
 	
-    public void aumentarSalarioPercent(float aumento) {
-        salario = salario + (salario * (aumento/100));
+    public void aumentarSalario() {
+        salario = salario + (salario * 0.13);
     }
 
 	@Override
@@ -48,7 +49,7 @@ public class Empleado {
 		this.cedula = cedula;
 	}
 
-	public float getSalario() {
+	public double getSalario() {
 		return salario;
 	}
 

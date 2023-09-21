@@ -15,13 +15,13 @@ public class Controller {
 	}
 	
 	public void funcionar() {
-		vista.mostrarInformacion("PROGRAMA DE DATOS EMPLEADOS");
+		vista.mostrarInformacion("PROGRAMA DATOS DE EMPLEADOS");
 		String cantidad = vista.leerDato("Digite la cantidad de Empleados a registrar: ");
 		Empleado[] p = new Empleado[Integer.parseInt(cantidad)];
-		String nombre, cedula, lengProgDom, areaEnc;
-		int edad, yearsExp, developTeams;
-		float salario, numLineasHora;
 		
+		String nombre, cedula, lengProgDom, areaEnc; 
+		int edad, yearsExp, developTeams;
+		double salario; float numLineasHora;
 		String menu = "\nMenu de opciones: " + 
 						"\n\t1. Empleado comun " + 
 						"\n\t2. Programador " + 
@@ -37,55 +37,48 @@ public class Controller {
 		    	i = p.length;
 			}
 			else {
-			nombre = vista.leerDato("\nEscriba el nombre: ");
-			edad = Integer.parseInt(vista.leerDato("\nEscriba la edad: "));
-			while(edad <= 0 || edad > 150) {
-				edad = Integer.parseInt(vista.leerDato("\nError: escriba una edad valida: "));
+				nombre = vista.leerDato("\nEscriba el nombre: ");
+				edad = Integer.parseInt(vista.leerDato("\nEscriba la edad: "));
+				while(edad <= 0 || edad > 150)
+					edad = Integer.parseInt(vista.leerDato("\nError: escriba una edad valida: "));
+				cedula = vista.leerDato("\nEscriba la cedula: ");
+				salario = Float.parseFloat(vista.leerDato("\nEscriba el salario: "));
+				
+				switch (opcion) { 
+				    case "1":
+				    	Empleado a = new Empleado(nombre, edad, cedula, salario);
+				    	p[i] = a;
+				    	break;
+				    case "2":
+				    	lengProgDom = vista.leerDato("\nEscriba el Lenguaje de Programacion Dominante: ");
+				    	numLineasHora = Float.parseFloat(vista.leerDato("\nEscriba el Numero de Lineas de Codigo por hora: "));
+				    	Empleado b = new Programador(nombre, edad, cedula, salario, lengProgDom, numLineasHora);
+				    	p[i] = b;
+				    	break;
+				    case "3":
+				    	yearsExp = Integer.parseInt(vista.leerDato("\nEscriba los Annos de Experiencia: "));
+				    	while(yearsExp < 0)
+				    		yearsExp = Integer.parseInt(vista.leerDato("\nError: escriba los Annos de Experiencia: "));
+				    	developTeams = Integer.parseInt(vista.leerDato("\nEscriba los Equipos de Desarrollo Liderados: "));
+				    	while(developTeams < 0)
+				    		developTeams = Integer.parseInt(vista.leerDato("\nError: escriba los Equipos de Desarrollo Liderados: "));
+				    	Empleado c = new Consultor(nombre, edad, cedula, salario, yearsExp, developTeams);
+				    	p[i] = c;
+				    	break;
+				    case "4":
+				    	yearsExp = Integer.parseInt(vista.leerDato("\nEscriba los Annos de Experiencia: "));
+				    	while(yearsExp < 0)
+				    		yearsExp = Integer.parseInt(vista.leerDato("\nError: escriba los Annos de Experiencia: "));
+				    	areaEnc = vista.leerDato("\nEscriba el Area encargada: ");
+				    	Empleado d = new Directivo(nombre, edad, cedula, salario, yearsExp, areaEnc);
+				    	p[i] = d;
+				    	break;
+				    default:
+				    	vista.mostrarInformacion("Error: Opcion invalida");
+				    	break;
+				    }
+				}
 			}
-			cedula = vista.leerDato("\nEscriba la cedula: ");
-			salario = Float.parseFloat(vista.leerDato("\nEscriba el salario: "));
-			
-			switch (opcion) { 
-			    case "1":
-			    	Empleado a = new Empleado(nombre, edad, cedula, salario);
-			    	p[i] = a;
-			    	break;
-			    case "2":
-			    	lengProgDom = vista.leerDato("\nEscriba el Lenguaje de Programacion Dominante: ");
-			    	numLineasHora = Float.parseFloat(vista.leerDato("\nEscriba el Numero de Lineas de Codigo por hora: "));
-			    	Empleado b = new Programador(nombre, edad, cedula, salario, lengProgDom, numLineasHora);
-			    	b.aumentarSalarioPercent(15);
-			    	p[i] = b;
-			    	break;
-			    case "3":
-			    	yearsExp = Integer.parseInt(vista.leerDato("\nEscriba los Annos de Experiencia: "));
-			    	while(yearsExp < 0) {
-			    		yearsExp = Integer.parseInt(vista.leerDato("\nError: escriba los Annos de Experiencia: "));
-					}
-			    	developTeams = Integer.parseInt(vista.leerDato("\nEscriba los Equipos de Desarrollo Liderados: "));
-			    	while(developTeams < 0) {
-			    		developTeams = Integer.parseInt(vista.leerDato("\nError: escriba los Equipos de Desarrollo Liderados: "));
-					}
-			    	Empleado c = new Consultor(nombre, edad, cedula, salario, yearsExp, developTeams);
-			    	c.aumentarSalarioPercent(25);
-			    	p[i] = c;
-			    	break;
-			    case "4":
-			    	yearsExp = Integer.parseInt(vista.leerDato("\nEscriba los Annos de Experiencia: "));
-			    	while(yearsExp < 0) {
-			    		yearsExp = Integer.parseInt(vista.leerDato("\nError: escriba los Annos de Experiencia: "));
-					}
-			    	areaEnc = vista.leerDato("\nEscriba el Area encargada: ");
-			    	Empleado d = new Directivo(nombre, edad, cedula, salario, yearsExp, areaEnc);
-			    	d.aumentarSalarioPercent(35);
-			    	p[i] = d;
-			    	break;
-			    default:
-			    	vista.mostrarInformacion("Error: Opcion invalida");
-			    	break;
-			    }
-			}
-		}
 		
 		for(int i = 0; i < p.length; i++) {
 			System.out.println("___________________________________________________________________");

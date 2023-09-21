@@ -4,13 +4,17 @@ public class Programador extends Empleado {
 	private String lengProgDom;
 	private float numLineasHora;
 	
-	public Programador(String nombre, int edad, String cedula, float salario, 
+	public Programador(String nombre, int edad, String cedula, double salario, 
 			String lengProgDom, float numLineasHora){
 		
 		super(nombre,edad, cedula, salario);
 		this.lengProgDom = lengProgDom;
 		this.numLineasHora = numLineasHora;
 	}
+	
+    public void aumentarSalario() {
+        salario = salario + (salario * 0.15);
+    }
 
 	@Override
 	public String toString() {
