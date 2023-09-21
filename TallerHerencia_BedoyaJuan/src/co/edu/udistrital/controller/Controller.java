@@ -16,8 +16,10 @@ public class Controller {
 	
 	public void funcionar() {
 		vista.mostrarInformacion("PROGRAMA DATOS DE EMPLEADOS");
-		String cantidad = vista.leerDato("Digite la cantidad de Empleados a registrar: ");
-		Empleado[] p = new Empleado[Integer.parseInt(cantidad)];
+		int cantidad = Integer.parseInt(vista.leerDato("Digite la cantidad de Empleados a registrar: "));
+		while(cantidad < 0)
+			cantidad = Integer.parseInt(vista.leerDato("\nError: Digite la cantidad de Empleados a registrar: "));
+		Empleado[] p = new Empleado[cantidad];
 		
 		String nombre, cedula, lengProgDom, areaEnc; 
 		int edad, yearsExp, developTeams;
