@@ -14,7 +14,7 @@ public class Empleado {
 	}
 	
     public void aumentarSalario() {
-        salario = salario + (salario * 0.13);
+        salario += salario * 0.13;
     }
 
 	@Override
@@ -53,7 +53,7 @@ public class Empleado {
 		return salario;
 	}
 
-	public void setSalario(double salario) {
+	public void setSalario(float salario) {
 		this.salario = salario;
 	}
 

@@ -13,7 +13,7 @@ public class Consultor extends Empleado {
 	}
 	
     public void aumentarSalario() {
-        salario = salario + (salario * 0.25);
+        salario += salario * 0.25;
     }
 	@Override
 	public String toString() {

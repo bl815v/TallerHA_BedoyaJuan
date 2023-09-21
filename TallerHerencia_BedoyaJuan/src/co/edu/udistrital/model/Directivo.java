@@ -13,7 +13,7 @@ public class Directivo extends Empleado {
 	}
 	
     public void aumentarSalario() {
-        salario = salario + (salario * 0.35);
+        salario += salario * 0.35;
     }
 	@Override
 	public String toString() {

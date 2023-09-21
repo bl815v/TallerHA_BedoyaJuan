@@ -13,7 +13,7 @@ public class Programador extends Empleado {
 	}
 	
     public void aumentarSalario() {
-        salario = salario + (salario * 0.15);
+        salario += salario * 0.15;
     }
 
 	@Override
