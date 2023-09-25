@@ -1,16 +1,15 @@
 package co.edu.udistrital.controller;
 
-import co.edu.udistrital.model.Empleado;
-import co.edu.udistrital.model.Programador;
-import co.edu.udistrital.model.Consultor;
-import co.edu.udistrital.model.Directivo;
-import co.edu.udistrital.view.VistaConsola;
+import co.edu.udistrital.model.*;
+import co.edu.udistrital.view.*;
 
 public class Controller {
-	private VistaConsola vista;
+	//private VistaConsola vista;
+	private VistaEmergente vista;
 	
 	public Controller() {
-		vista = new VistaConsola();
+		//vista = new VistaConsola();
+		vista = new VistaEmergente();
 		funcionar();
 	}
 	
