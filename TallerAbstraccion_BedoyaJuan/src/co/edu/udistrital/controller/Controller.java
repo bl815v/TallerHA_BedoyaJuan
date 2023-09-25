@@ -77,10 +77,10 @@ public class Controller {
 		}
 		
 		for(int i = 0; i < p.length; i++) {
-			System.out.println("___________________________________________________________________");
-			System.out.println(p[i]);
+			vista.mostrarInformacion("___________________________________________________________________");
+			vista.mostrarInformacion(p[i].toString());
 		}
-		System.out.println("___________________________________________________________________");
+		vista.mostrarInformacion("___________________________________________________________________");
 		
 		
 	}
